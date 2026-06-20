@@ -1,0 +1,117 @@
+/* Import Bootstrap & Icons */
+@import "bootstrap/dist/css/bootstrap.min.css";
+@import "bootstrap-icons/font/bootstrap-icons.css";
+
+/* Design System Variables */
+:root {
+  --bg-gradient: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+  --card-bg: rgba(255, 255, 255, 0.75);
+  --card-border: rgba(226, 232, 240, 0.8);
+  --text-primary: #0f172a;
+  --primary-gradient: linear-gradient(135deg, #6366f1 0%, #4f46e5 100%);
+  --accent-pending: #f59e0b;
+  --accent-inprogress: #3b82f6;
+  --accent-completed: #10b981;
+}
+
+[data-theme="dark"] {
+  --bg-gradient: linear-gradient(135deg, #090d16 0%, #111827 100%);
+  --card-bg: rgba(17, 24, 39, 0.75);
+  --card-border: rgba(31, 41, 55, 0.8);
+  --text-primary: #f8fafc;
+}
+
+/* Base Body Styles */
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-primary);
+  min-height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+/* Custom Glass Card */
+.glass-card {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+}
+
+/* Custom Button */
+.btn-primary-custom {
+  background: var(--primary-gradient);
+  border: none;
+  color: white !important;
+  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(79, 70, 229, 0.25);
+  transition: all 0.2s;
+}
+.btn-primary-custom:hover {
+  filter: brightness(1.1);
+  transform: translateY(-1px);
+}
+
+/* Status Badges */
+.badge-pending {
+  background: rgba(245, 158, 11, 0.15);
+  color: var(--accent-pending);
+  padding: 0.35em 0.75em;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.badge-inprogress {
+  background: rgba(59, 130, 246, 0.15);
+  color: var(--accent-inprogress);
+  padding: 0.35em 0.75em;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+.badge-completed {
+  background: rgba(16, 185, 129, 0.15);
+  color: var(--accent-completed);
+  padding: 0.35em 0.75em;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Metric Borders */
+.metric-card { border-left: 4px solid #6366f1; }
+.metric-total { border-left-color: #6366f1; }
+.metric-pending { border-left-color: var(--accent-pending); }
+.metric-completed { border-left-color: var(--accent-completed); }
+
+/* Custom Toasts styling */
+.toast-container-custom {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: 1080;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  max-width: 320px;
+}
+.toast-custom {
+  background: var(--card-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid var(--accent-completed);
+  color: var(--text-primary);
+  border-radius: 8px;
+  padding: 0.75rem 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.toast-custom.warning { border-left-color: var(--accent-pending); }
+.toast-custom.danger { border-left-color: #ef4444; }
